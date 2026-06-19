@@ -154,7 +154,7 @@
             width: 0%;
             background: linear-gradient(90deg, var(--yellow), #a855f7);
             border-radius: 4px;
-            animation: loaderFill 2.2s ease-in-out forwards;
+            animation: loaderFill 0.8s ease-in-out forwards;
             box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
         }
 
@@ -1306,6 +1306,11 @@
 
         /* ===== MOBILE-FIRST: Full Phone Optimization ===== */
         @media (max-width: 768px) {
+            
+            /* --- Performance Boost --- */
+            body::before {
+                animation: none; /* Disable heavy ambient drift on phones */
+            }
 
             /* --- Loading Screen Mobile --- */
             .loader-logo {
@@ -1512,40 +1517,40 @@
             }
 
             .grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                grid-template-columns: 1fr;
+                gap: 20px;
                 max-width: 100%;
             }
 
             .reel-card {
-                padding: 8px;
-                border-radius: 8px;
+                padding: 10px;
+                border-radius: 12px;
             }
 
             .play-btn {
-                width: 40px;
-                height: 40px;
+                width: 60px;
+                height: 60px;
             }
 
             .play-btn::after {
-                border-width: 7px 0 7px 11px;
-                margin-left: 3px;
+                border-width: 10px 0 10px 16px;
+                margin-left: 4px;
             }
 
             .card-info {
-                padding: 7px;
-                border-radius: 6px;
+                padding: 12px;
+                border-radius: 8px;
             }
 
             .card-info h3 {
-                font-size: 12px;
+                font-size: 16px;
                 line-height: 1.2;
-                margin-bottom: 2px;
+                margin-bottom: 4px;
                 -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.9);
             }
 
             .card-info p {
-                font-size: 8px;
+                font-size: 10px;
                 letter-spacing: 0.5px;
             }
 
@@ -2693,7 +2698,7 @@
             setTimeout(function () {
                 document.getElementById('loadingScreen').classList.add('hide');
                 document.body.classList.remove('is-loading');
-            }, 2200);
+            }, 800);
         });
 
         // Toast Notification Logic
